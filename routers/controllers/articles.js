@@ -25,37 +25,32 @@ const getArticlesByAuthor = (req, res) => {
 
 
 //ticket_3
-const getAnArticleById = () => {
-    app.get('/articles/search_2', (req, res) => {
-        const id = req.query.id
-        const searchById = articles.find((element) => {
-            return element.id == id;
-        })
-        if (searchById) {
-            res.status(200);
-            res.json(searchById);
-        } else {
-            res.status(404);
-            res.json("articles id is not found");
-        }
-
+const getAnArticleById = (req, res) => {
+    const id = req.query.id
+    const searchById = articles.find((element) => {
+        return element.id == id;
     })
+    if (searchById) {
+        res.status(200);
+        res.json(searchById);
+    } else {
+        res.status(404);
+        res.json("articles id is not found");
+    }
 }
 
 
 //ticket_4
-const createNewArticle = () => {
-    app.post('/articles', (req, res) => {
+const createNewArticle = (req, res) => {
 
-        const id = randomId;
-        const title = req.body.title;
-        const description = req.body.description;
-        const author = req.body.author;
-        const newObj = { id: randomId, title: title, description: description, author: author }
-        articles.push(newObj);
-        res.status(201);
-        res.json(newObj);
-    })
+    const id = randomId;
+    const title = req.body.title;
+    const description = req.body.description;
+    const author = req.body.author;
+    const newObj = { id: randomId, title: title, description: description, author: author }
+    articles.push(newObj);
+    res.status(201);
+    res.json(newObj);
 }
 
 

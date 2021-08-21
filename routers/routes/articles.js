@@ -14,5 +14,7 @@ const {
 
 articlesRouter.get('/', getAllArticles);
 articlesRouter.get('/search_1', getArticlesByAuthor);
+articlesRouter.get('/search_2', getAnArticleById);
+articlesRouter.post('/', createNewArticle);
 
 module.exports = articlesRouter;
