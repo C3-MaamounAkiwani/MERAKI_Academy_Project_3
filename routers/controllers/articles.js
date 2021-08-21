@@ -4,27 +4,23 @@ const randomId = uuid();
 
 //ticket_1
 const getAllArticles = (req, res) => {
-
     res.status(200);
     res.json(articles);
-
 }
 
-
 //ticket_2
-const getArticlesByAuthor = () => {
-    app.get('/articles/search_1', (req, res) => {
-        const author = req.query.author;
-        const findByAuthor = articles.filter((name) => {
-            return name.author === author;
-        })
-        if (findByAuthor.length > 0) {
-            res.status(200);
-            res.json(findByAuthor);
-        } else {
-            res.json('theres no name such as same you entered');
-        }
+const getArticlesByAuthor = (req, res) => {
+    const author = req.query.author;
+    const findByAuthor = articles.filter((name) => {
+        return name.author === author;
     })
+    if (findByAuthor.length > 0) {
+        res.status(200);
+        res.json(findByAuthor);
+    } else {
+        res.json('theres no name such as same you entered');
+    }
+
 }
 
 

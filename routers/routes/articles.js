@@ -13,5 +13,6 @@ const {
 
 
 articlesRouter.get('/', getAllArticles);
+articlesRouter.get('/search_1', getArticlesByAuthor);
 
 module.exports = articlesRouter;
