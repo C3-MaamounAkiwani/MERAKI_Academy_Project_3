@@ -8,7 +8,6 @@ const {
     createNewArticle,
     updateAnArticleById,
     deleteArticleById,
-    deleteArticlesByAuthor
 } = require("../controllers/articles");
 
 
@@ -17,5 +16,5 @@ articlesRouter.get('/search_1', getArticlesByAuthor);
 articlesRouter.get('/search_2', getAnArticleById);
 articlesRouter.post('/', createNewArticle);
 articlesRouter.put('/:id', updateAnArticleById);
-
+articlesRouter.delete('/:id', deleteArticleById);
 module.exports = articlesRouter;

@@ -76,53 +76,21 @@ const updateAnArticleById = (req, res) => {
 }
 
 //ticket_6
-const deleteArticleById = () => {
+const deleteArticleById = (req, res) => {
+    let id = req.params.id;
+    const deleteById = articles.find((element, index) => {
 
-    app.delete('/articles/:id', (req, res) => {
-        let id = req.params.id;
-        const deleteById = articles.find((element, index) => {
-
-            i = index;
-            return element.id == id;
-        })
-        if (deleteById) {
-            const successDeletedById = {
-                success: true,
-                message: `Success Delete article with id => ${id}`
-            }
-            articles.splice(i, 1);
-            res.json(successDeletedById);
-        } else {
-            const faildDeleteById = {
-                success: false,
-                message: `Not Found atricle with id => ${id}`
-            }
-            res.json(faildDeleteById);
-        }
+        i = index;
+        return element.id == id;
     })
+    if (deleteById) {
+        const successDeletedById = {
+            success: true,
+            message: `Success Delete article with id => ${id}`
+        }
+        articles.splice(i, 1);
+        res.json(successDeletedById);
+    }
 }
 
-//ticket_7
-const deleteArticlesByAuthor = () => {
-    app.delete('/articles', (req, res) => {
-        let author = req.body.author;
-        articles = articles.filter((ele) => {
-            return ele.author !== author;
-        })
-        if (articles) {
-            const successDeletedByAuthor = {
-                success: true,
-                message: `Success delete all the articles for the author => ${author}`
-            }
-            res.json(successDeletedByAuthor);
-        } else {
-            const faildDeleteByAuthor = {
-                success: false,
-                message: `Not Found atricles for this author => ${author}`
-            }
-            res.json(faildDeleteByAuthor);
-        }
-    })
-}
-
-module.exports = { getAllArticles, getArticlesByAuthor, getAnArticleById, createNewArticle, updateAnArticleById, deleteArticleById, deleteArticlesByAuthor }
+module.exports = { getAllArticles, getArticlesByAuthor, getAnArticleById, createNewArticle, updateAnArticleById, deleteArticleById }
