@@ -21,6 +21,7 @@
     "homepage": "https://github.com/C3-MaamounAkiwani/MERAKI_Academy_Project_3#readme",
     "dependencies": {
         "express": "^4.17.1",
-        "nodemon": "^2.0.12"
+        "nodemon": "^2.0.12",
+        "uuidv4": "^6.2.12"
     }
 }
