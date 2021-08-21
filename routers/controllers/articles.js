@@ -79,7 +79,6 @@ const updateAnArticleById = (req, res) => {
 const deleteArticleById = (req, res) => {
     let id = req.params.id;
     const deleteById = articles.find((element, index) => {
-
         i = index;
         return element.id == id;
     })
@@ -99,4 +98,28 @@ const deleteArticleById = (req, res) => {
     }
 }
 
-module.exports = { getAllArticles, getArticlesByAuthor, getAnArticleById, createNewArticle, updateAnArticleById, deleteArticleById }
+//ticket_7
+const deleteArticlesByAuthor = (req, res) => {
+    let author = req.body.author;
+    const deleteByAuthor = articles.find((ele, index) => {
+        i = index;
+        return ele.author === author;
+    })
+    if (deleteByAuthor) {
+        const successDeletedByAuthor = {
+            success: true,
+            message: `Success delete all the articles for the author => ${author}`
+        }
+        articles.splice(i, 1);
+        res.json(successDeletedByAuthor);
+    } else {
+        const faildDeleteByAuthor = {
+            success: false,
+            message: `Not Found atricles for this author => ${author}`
+        }
+        res.json(faildDeleteByAuthor);
+    }
+
+}
+
+module.exports = { getAllArticles, getArticlesByAuthor, getAnArticleById, createNewArticle, updateAnArticleById, deleteArticleById, deleteArticlesByAuthor }

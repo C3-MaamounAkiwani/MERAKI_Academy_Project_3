@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const db = require('./db/db');
 const port = 5000;
-const articles = require('./db/db');
+let articles = require('./db/db');
 const articlesRouter = require('./routers/routes/articles');
 app.use(express.json());
 
@@ -26,10 +26,13 @@ app.use('/articles', articlesRouter);
 //ticket_5
 app.use('/articles/:id', articlesRouter);
 
-//ticket_6
 
+//ticket_6
 app.use('/articles/:id', articlesRouter);
 
+
+//ticket_7
+app.use('/articles', articlesRouter);
 
 app.listen(port, () => {
     console.log(`Your Server is listening on port ${port}`);
