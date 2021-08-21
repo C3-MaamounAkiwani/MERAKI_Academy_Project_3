@@ -90,6 +90,12 @@ const deleteArticleById = (req, res) => {
         }
         articles.splice(i, 1);
         res.json(successDeletedById);
+    } else {
+        const faildDeleteById = {
+            success: false,
+            message: `Not Found atricle with id => ${id}`
+        }
+        res.json(faildDeleteById);
     }
 }
 
