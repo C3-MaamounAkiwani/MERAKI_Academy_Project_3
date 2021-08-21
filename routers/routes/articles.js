@@ -16,5 +16,6 @@ articlesRouter.get('/', getAllArticles);
 articlesRouter.get('/search_1', getArticlesByAuthor);
 articlesRouter.get('/search_2', getAnArticleById);
 articlesRouter.post('/', createNewArticle);
+articlesRouter.put('/:id', updateAnArticleById);
 
 module.exports = articlesRouter;

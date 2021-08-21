@@ -19,11 +19,14 @@ app.use('/articles/search_1', articlesRouter);
 app.use('/articles/search_2', articlesRouter);
 
 
-
 //ticket_4
 app.use('/articles', articlesRouter);
 
+
 //ticket_5
+app.use('/articles/:id', articlesRouter);
+
+/*
 const updateAnArticleById = () => {
     app.put('/articles/:id', (req, res) => {
         let id = req.params.id;
@@ -45,8 +48,7 @@ const updateAnArticleById = () => {
     })
 }
 updateAnArticleById();
-
-
+*/
 //ticket_6
 const deleteArticleById = () => {
 

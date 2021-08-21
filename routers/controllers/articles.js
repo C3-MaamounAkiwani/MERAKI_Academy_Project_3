@@ -56,27 +56,24 @@ const createNewArticle = (req, res) => {
 
 
 //ticket_5
-const updateAnArticleById = () => {
-    app.put('/articles/:id', (req, res) => {
-        let id = req.params.id;
-        const title = req.body.title;
-        const description = req.body.description;
-        const author = req.body.author;
-        const findbyid = articles.find((element) => {
-            return element.id == id;
-        })
-        if (findbyid) {
-            res.status(202);
-            findbyid.title = title;
-            findbyid.description = description;
-            findbyid.author = author;
-            res.json(findbyid);
-        } else {
-            res.json('not find id');
-        }
+const updateAnArticleById = (req, res) => {
+    let id = req.params.id;
+    const title = req.body.title;
+    const description = req.body.description;
+    const author = req.body.author;
+    const findbyid = articles.find((element) => {
+        return element.id == id;
     })
+    if (findbyid) {
+        res.status(202);
+        findbyid.title = title;
+        findbyid.description = description;
+        findbyid.author = author;
+        res.json(findbyid);
+    } else {
+        res.json('not find id');
+    }
 }
-
 
 //ticket_6
 const deleteArticleById = () => {
